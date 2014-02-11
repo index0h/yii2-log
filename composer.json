@@ -46,7 +46,7 @@
     "extra": {
         "writable": [
             "tests/_runtime",
-            "tests/_logs"
+            "tests/_log"
         ]
     }
 }
