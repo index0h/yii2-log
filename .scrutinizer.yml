@@ -1,0 +1,75 @@
+filter:
+    excluded_paths:
+        - 'vendor/*'
+        - 'tests/*'
+tools:
+    external_code_coverage:
+        timeout: 600
+    php_code_sniffer:
+        config:
+            standard: PSR2
+            sniffs: {
+                psr1: {
+                    classes: {
+                        class_declaration_sniff: true
+                    }
+                },
+                generic: {
+                    code_analysis: {
+                        unused_function_parameter_sniff: true,
+                        unconditional_if_statement_sniff: true,
+                        for_loop_should_be_while_loop_sniff: true
+                    },
+                    php: {
+                        disallow_short_open_tag_sniff: true,
+                        sapi_usage_sniff: true
+                    },
+                    metrics: {
+                        cyclomatic_complexity_sniff: true,
+                        nesting_level_sniff: true
+                    }
+                },
+                squiz: {
+                    operators: {
+                        comparison_operator_usage_sniff: true
+                    }
+                }
+            }
+    php_analyzer:
+        enabled: true
+        extensions:
+            - php
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'tests/*'
+            paths: {  }
+    php_cpd:
+        excluded_dirs:
+            - vendor
+            - tests
+        enabled: true
+        command: phpcpd
+        names:
+            - '*.php'
+        min_lines: 5
+        min_tokens: 70
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'tests/*'
+    php_pdepend:
+        excluded_dirs:
+            - vendor
+            - tests
+        enabled: true
+        command: pdepend
+        configuration_file: null
+        suffixes:
+            - php
+changetracking:
+    bug_patterns:
+        - '\bfix(?:es|ed)?\b'
+    feature_patterns:
+        - '\badd(?:s|ed)?\b'
+        - '\bimplement(?:s|ed)?\b'
