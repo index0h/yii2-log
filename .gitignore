@@ -1,0 +1,7 @@
+!.gitignore
+
+.idea
+tests/_runtime
+tests/_log
+vendor
+composer.lock

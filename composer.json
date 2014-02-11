@@ -1,0 +1,52 @@
+{
+    "name": "index0h/yii-log",
+    "description": "Many Yii2 log targets",
+    "version": "0.0.1-alpha",
+    "type": "yii2-extension",
+    "keywords": ["yii", "log", "yii-log", "log-target"],
+    "homepage": "https://github.com/index0h/yii-log",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Levishchenko",
+            "email": "index.0h@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/index0h/yii-log/issues",
+        "source": "https://github.com/index0h/yii-log"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2-composer": "dev-master",
+        "yiisoft/yii2": "dev-master"
+    },
+    "require-dev": {
+        "codeception/codeception": "1.8.2",
+        "predis/predis": "v0.8.5",
+        "elasticsearch/elasticsearch": "~0.4"
+    },
+    "suggest": {
+        "predis/predis": "v0.8.5",
+        "elasticsearch/elasticsearch": "~0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "index0h\\yii\\log\\": "lib"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::setPermission"
+        ]
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "extra": {
+        "writable": [
+            "tests/_runtime",
+            "tests/_logs"
+        ]
+    }
+}
