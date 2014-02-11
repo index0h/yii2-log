@@ -196,8 +196,8 @@ output {
 ##### Properties
 
 * `key`, default `yii_log` - Redis list key.
-* `options` - Predis client options, @see https://github.com/nrk/predis.
-* `parameters` - Predis client parameters, @see https://github.com/nrk/predis.
+* `options` - Predis client options, [see docs](https://github.com/nrk/predis#connecting-to-redis).
+* `parameters` - Predis client parameters, [see docs](https://github.com/nrk/predis#connecting-to-redis).
 
 ## Testing
 
