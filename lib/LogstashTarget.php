@@ -9,6 +9,7 @@ namespace index0h\yii\log;
 
 use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
+use Yii;
 
 class LogstashTarget extends \yii\log\FileTarget
 {
@@ -27,7 +28,7 @@ class LogstashTarget extends \yii\log\FileTarget
         if ($socket === null) {
             $this->emergencyExport(['dsn' => $this->dsn, 'error' => $error, 'errorNumber' => $errorNumber]);
         } else {
-            fwrite($socket,  implode("\n", array_map([$this, 'formatMessage'], $this->messages)) . "\n");
+            fwrite($socket, implode("\n", array_map([$this, 'formatMessage'], $this->messages)) . "\n");
             fclose($socket);
         }
     }

@@ -11,6 +11,7 @@ use Elasticsearch\Client;
 use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
 use yii\log\Target;
+use Yii;
 
 class ElasticsearchTarget extends Target
 {
