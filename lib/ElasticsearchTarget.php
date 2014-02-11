@@ -32,7 +32,7 @@ class ElasticsearchTarget extends Target
             $client = Client::connection($this->dsn);
 
             foreach ($this->messages as &$message) {
-                $client->index($this->formatMessage($message));
+                $client->index($this->prepareMessage($message));
             }
         } catch (\Exception $error) {
             $this->emergencyExport(

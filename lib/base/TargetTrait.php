@@ -52,25 +52,11 @@ trait TargetTrait
      *
      * @param array $message The log message to be formatted.
      *
-     * @return string The formatted message
+     * @return string
      */
     public function formatMessage($message)
     {
-        list($text, $level, $category, $timestamp) = $message;
-
-        $level = Logger::getLevelName($level);
-        $timestamp = date('c', $timestamp);
-
-        $result = ArrayHelper::merge(
-            $this->parseText($text),
-            ['level' => $level, 'category' => $category, '@timestamp' => $timestamp]
-        );
-
-        if (isset($message[4]) === true) {
-            $result['trace'] = $message[4];
-        }
-
-        return json_encode($result);
+        return json_encode($this->prepareMessage($message));
     }
 
     /**
@@ -131,5 +117,31 @@ trait TargetTrait
             default:
                 return ['@message' => \Yii::t('log', "Warning, wrong log message type '{$type}'")];
         }
+    }
+
+    /**
+     * Transform log message to assoc.
+     *
+     * @param array $message The log message.
+     *
+     * @return array
+     */
+    protected function prepareMessage($message)
+    {
+        list($text, $level, $category, $timestamp) = $message;
+
+        $level = Logger::getLevelName($level);
+        $timestamp = date('c', $timestamp);
+
+        $result = ArrayHelper::merge(
+            $this->parseText($text),
+            ['level' => $level, 'category' => $category, '@timestamp' => $timestamp]
+        );
+
+        if (isset($message[4]) === true) {
+            $result['trace'] = $message[4];
+        }
+
+        return $result;
     }
 }
