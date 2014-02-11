@@ -9,7 +9,6 @@ namespace index0h\yii\log;
 
 use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
-use Yii;
 
 class LogstashTarget extends \yii\log\FileTarget
 {

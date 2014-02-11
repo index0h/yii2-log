@@ -11,7 +11,6 @@ use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
 use Predis\Client;
 use yii\log\Target;
-use Yii;
 
 class RedisTarget extends Target
 {

@@ -8,7 +8,6 @@
 namespace index0h\yii\log;
 
 use index0h\yii\log\base\TargetTrait;
-use Yii;
 
 class LogstashFileTarget extends \yii\log\FileTarget
 {
