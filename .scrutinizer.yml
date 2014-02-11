@@ -8,33 +8,7 @@ tools:
     php_code_sniffer:
         config:
             standard: PSR2
-            sniffs: {
-                psr1: {
-                    classes: {
-                        class_declaration_sniff: true
-                    }
-                },
-                generic: {
-                    code_analysis: {
-                        unused_function_parameter_sniff: true,
-                        unconditional_if_statement_sniff: true,
-                        for_loop_should_be_while_loop_sniff: true
-                    },
-                    php: {
-                        disallow_short_open_tag_sniff: true,
-                        sapi_usage_sniff: true
-                    },
-                    metrics: {
-                        cyclomatic_complexity_sniff: true,
-                        nesting_level_sniff: true
-                    }
-                },
-                squiz: {
-                    operators: {
-                        comparison_operator_usage_sniff: true
-                    }
-                }
-            }
+            sniffs: { psr1: { classes: { class_declaration_sniff: true } }, generic: { code_analysis: { unused_function_parameter_sniff: true, unconditional_if_statement_sniff: true, for_loop_should_be_while_loop_sniff: true }, php: { disallow_short_open_tag_sniff: true, sapi_usage_sniff: true }, metrics: { cyclomatic_complexity_sniff: true, nesting_level_sniff: true } }, squiz: { operators: { comparison_operator_usage_sniff: true } } }
     php_analyzer:
         enabled: true
         extensions:
