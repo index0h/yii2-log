@@ -1,7 +1,7 @@
 {
     "name": "index0h/yii-log",
     "description": "Many Yii2 log targets",
-    "version": "0.0.1-alpha",
+    "version": "0.0.1-beta",
     "type": "yii2-extension",
     "keywords": ["yii", "log", "yii-log", "log-target"],
     "homepage": "https://github.com/index0h/yii-log",
@@ -24,11 +24,11 @@
     "require-dev": {
         "codeception/codeception": "1.8.2",
         "predis/predis": "v0.8.5",
-        "elasticsearch/elasticsearch": "~0.4"
+        "nervetattoo/elasticsearch" : ">=2.0"
     },
     "suggest": {
         "predis/predis": "v0.8.5",
-        "elasticsearch/elasticsearch": "~0.4"
+        "nervetattoo/elasticsearch" : ">=2.0"
     },
     "autoload": {
         "psr-4": {

@@ -10,6 +10,9 @@ namespace index0h\yii\log;
 use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
 
+/**
+ * @author Roman Levishchenko <index.0h@gmail.com>
+ */
 class LogstashTarget extends \yii\log\FileTarget
 {
     use TargetTrait;
@@ -23,12 +26,23 @@ class LogstashTarget extends \yii\log\FileTarget
      */
     public function export()
     {
-        $socket = stream_socket_client($this->dsn, $errorNumber, $error, 30);
-        if ($socket === null) {
-            $this->emergencyExport(['dsn' => $this->dsn, 'error' => $error, 'errorNumber' => $errorNumber]);
-        } else {
-            fwrite($socket, implode("\n", array_map([$this, 'formatMessage'], $this->messages)) . "\n");
+        try {
+            $socket = stream_socket_client($this->dsn, $errorNumber, $error, 30);
+
+            foreach($this->messages as &$message) {
+                fwrite($socket, $this->formatMessage($message));
+            }
+
             fclose($socket);
+        } catch (\Exception $error) {
+            $this->emergencyExport(
+                [
+                    'dsn' => $this->dsn,
+                    'error' => $error->getMessage(),
+                    'errorNumber' => $error->getCode(),
+                    'trace' => $error->getTraceAsString()
+                ]
+            );
         }
     }
 }

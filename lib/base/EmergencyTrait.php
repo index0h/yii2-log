@@ -13,6 +13,8 @@ use yii\helpers\ArrayHelper;
  * Current class needs to write logs on external service exception.
  *
  * @property array messages The messages that are retrieved from the logger so far by this log target.
+ *
+ * @author Roman Levishchenko <index.0h@gmail.com>
  */
 trait EmergencyTrait
 {

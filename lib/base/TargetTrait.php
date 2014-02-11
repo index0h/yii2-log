@@ -22,6 +22,8 @@ use yii\log\Logger;
  * @method array filterMessages(array $messages, int $levels, array $categories, array $except)
  *     Filters the given messages according to their categories and levels.
  * @method void export Exports log [[messages]] to a specific destination.
+ *
+ * @author Roman Levishchenko <index.0h@gmail.com>
  */
 trait TargetTrait
 {
@@ -64,8 +66,8 @@ trait TargetTrait
             ['level' => $level, 'category' => $category, '@timestamp' => $timestamp]
         );
 
-        if (isset($message[5]) === true) {
-            $result['trace'] = $message[5];
+        if (isset($message[4]) === true) {
+            $result['trace'] = $message[4];
         }
 
         return json_encode($result);

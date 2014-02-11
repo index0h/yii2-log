@@ -7,24 +7,21 @@
 
 namespace index0h\yii\log;
 
-use Elasticsearch\Client;
+use ElasticSearch\Client;
 use index0h\yii\log\base\EmergencyTrait;
 use index0h\yii\log\base\TargetTrait;
 use yii\log\Target;
 
+/**
+ * @author Roman Levishchenko <index.0h@gmail.com>
+ */
 class ElasticsearchTarget extends Target
 {
     use TargetTrait;
     use EmergencyTrait;
 
-    /** @type string Index name. */
-    public $index;
-
-    /** @type array Elasticsearch client options @see https://github.com/elasticsearch/elasticsearch-php. */
-    public $options;
-
-    /** @type string Index type. */
-    public $type = 'yiiLog';
+    /** @type array Elasticsearch full url @see https://github.com/nervetattoo/elasticsearch. */
+    public $dsn = 'http://127.0.0.1:9200/yii/log';
 
     /**
      * @inheritdoc
@@ -32,20 +29,15 @@ class ElasticsearchTarget extends Target
     public function export()
     {
         try {
-            $client = new Client();
+            $client = Client::connection($this->dsn);
 
-            $data = [
-                'index' => $this->index,
-                'type' => $this->type,
-                'body' => implode("\n", array_map([$this, 'formatMessage'], $this->messages)) . "\n"
-            ];
-
-            $client->bulk($data);
+            foreach ($this->messages as &$message) {
+                $client->index($this->formatMessage($message));
+            }
         } catch (\Exception $error) {
             $this->emergencyExport(
                 [
-                    'index' => $this->index,
-                    'type' => $this->type,
+                    'dsn' => $this->dsn,
                     'error' => $error->getMessage(),
                     'errorNumber' => $error->getCode(),
                     'trace' => $error->getTraceAsString()

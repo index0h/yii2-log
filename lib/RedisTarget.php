@@ -12,13 +12,16 @@ use index0h\yii\log\base\TargetTrait;
 use Predis\Client;
 use yii\log\Target;
 
+/**
+ * @author Roman Levishchenko <index.0h@gmail.com>
+ */
 class RedisTarget extends Target
 {
     use TargetTrait;
     use EmergencyTrait;
 
     /** @type string Redis list key. */
-    public $key = 'yiiLog';
+    public $key = 'yii_log';
 
     /** @type array|null Predis client options, @see https://github.com/nrk/predis. */
     public $options;

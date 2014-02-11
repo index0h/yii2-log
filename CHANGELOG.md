@@ -9,3 +9,4 @@ yii-log change log
 #3 Implement Logstash socket transport
 #4 Implement Elsaticsearch transport
 #5 Implement Redis transport
+#7 Create codeception tests

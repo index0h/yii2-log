@@ -13,10 +13,41 @@ return [
         'log' => [
             'traceLevel' => 3,
             'targets' => [
-                ['class' => 'index0h\\yii\\log\\ElasticsearchTarget'],
-                ['class' => 'index0h\\yii\\log\\LogstashFileTarget'],
-                ['class' => 'index0h\\yii\\log\\LogstashTarget'],
-                ['class' => 'index0h\\yii\\log\\RedisTarget'],
+                [
+                    'class' => 'index0h\\yii\\log\\ElasticsearchTarget',
+                    'categories' => ['ElasticsearchTarget'],
+                    'emergencyLogFile' => '@tests/_log/emergency.log'
+                ],
+                [
+                    'class' => 'index0h\\yii\\log\\ElasticsearchTarget',
+                    'categories' => ['WrongElasticsearchTarget'],
+                    'dsn' => 'http://WRONG_HOST:12045/yii/log',
+                    'emergencyLogFile' => '@tests/_log/emergency.log'
+                ],
+                [
+                    'class' => 'index0h\\yii\\log\\LogstashFileTarget',
+                    'categories' => ['LogstashFileTarget'],
+                    'logFile' => '@tests/_log/logstash.log'
+                ],
+                [
+                    // Travis doesn't have logstash implementation.
+                    'class' => 'index0h\\yii\\log\\LogstashTarget',
+                    'categories' => ['WrongLogstashTarget'],
+                    'dsn' => 'tcp://WRONG_HOST:12045',
+                    'emergencyLogFile' => '@tests/_log/emergency.log'
+                ],
+                [
+                    'class' => 'index0h\\yii\\log\\RedisTarget',
+                    'categories' => ['RedisTarget'],
+                    'emergencyLogFile' => '@tests/_log/emergency.log',
+                    'key' => 'yii_log'
+                ],
+                [
+                    'class' => 'index0h\\yii\\log\\RedisTarget',
+                    'categories' => ['WrongRedisTarget'],
+                    'parameters' => 'tcp://WRONG_HOST:12045',
+                    'emergencyLogFile' => '@tests/_log/emergency.log'
+                ],
             ],
         ],
     ]
