@@ -21,7 +21,7 @@ class ElasticsearchTarget extends Target
     use EmergencyTrait;
 
     /** @type array Elasticsearch full url @see https://github.com/nervetattoo/elasticsearch. */
-    public $dsn = 'http://127.0.0.1:9200/yii/log';
+    public $dsn = 'http://localhost:9200/yii/log';
 
     /**
      * @inheritdoc
