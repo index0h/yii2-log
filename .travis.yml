@@ -7,6 +7,9 @@ php:
 install:
   - composer self-update && composer --version
   - composer install
+  # @TODO Bugfix chmod of logs directory.
+  - chmod 0777 -R ./tests/_log
+  - chmod 0777 -R ./tests/_runtime
 
 script:
   - make test
