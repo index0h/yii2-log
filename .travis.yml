@@ -4,6 +4,10 @@ php:
   - 5.4
   - 5.5
 
+services:
+  - redis-server
+  - elasticsearch
+
 install:
   - composer self-update && composer --version
   - composer install
