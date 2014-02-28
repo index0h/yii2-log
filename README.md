@@ -49,13 +49,15 @@ Extends yii\log\Target, more options see [here](https://github.com/yiisoft/yii2/
 'components' => [
     'log' => [
         'targets' => [
-            ['class' => 'index0h\\yii\\log\\ElasticsearchTarget'],
+            ['class' => 'index0h\\log\\ElasticsearchTarget'],
         ....
 ```
 
 ##### Properties
 
-* `dsn`, default 'http://localhost:9200/yii/log' - URL to elasticsearch service. `yii` - _index, `log` - _type.
+* `index`, default 'yii' - Elasticsearch index name.
+* `type`, default 'log' - Elasticsearch index type.
+* `componentName` - Name of yii redis component.
 
 ### LogstashFileTarget
 
@@ -68,7 +70,7 @@ Extends yii\log\FileTarget, more options see [here](https://github.com/yiisoft/y
 'components' => [
     'log' => [
         'targets' => [
-            ['class' => 'index0h\\yii\\log\\LogstashFileTarget'],
+            ['class' => 'index0h\\log\\LogstashFileTarget'],
         ....
 ```
 
@@ -106,15 +108,15 @@ Extends yii\log\Target, more options see [here](https://github.com/yiisoft/yii2/
 'components' => [
     'log' => [
         'targets' => [
-            ['class' => 'index0h\\yii\\log\\LogstashTarget'],
+            ['class' => 'index0h\\log\\LogstashTarget'],
             // Or UDP.
             [
-                'class' => 'index0h\\yii\\log\\LogstashTarget',
+                'class' => 'index0h\\log\\LogstashTarget',
                 'dsn' => 'udp://localhost:3333'
             ],
             // Or unix socket file.
             [
-                'class' => 'index0h\\yii\\log\\LogstashTarget',
+                'class' => 'index0h\\log\\LogstashTarget',
                 'dsn' => 'unix:///path/to/logstash.sock'
             ],
         ....
@@ -169,7 +171,7 @@ Extends yii\log\Target, more options see [here](https://github.com/yiisoft/yii2/
 'components' => [
     'log' => [
         'targets' => [
-            ['class' => 'index0h\\yii\\log\\RedisTarget'],
+            ['class' => 'index0h\\log\\RedisTarget'],
         ....
 ```
 
@@ -196,8 +198,7 @@ output {
 ##### Properties
 
 * `key`, default `yii_log` - Redis list key.
-* `options` - Predis client options, [see docs](https://github.com/nrk/predis#connecting-to-redis).
-* `parameters` - Predis client parameters, [see docs](https://github.com/nrk/predis#connecting-to-redis).
+* `componentName` - Name of yii redis component.
 
 ## Testing
 
@@ -206,7 +207,7 @@ output {
 - Select Run/Debug Configuration -> Edit Configurations
 - Select Add New Configuration -> PHP Script
 - Type:
-    * File: /path/to/yii-phar/runTests.php
+    * File: /path/to/yii-phar/.test.php
     * Arguments run: run  --coverage --html
 - OK
 

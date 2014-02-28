@@ -1,8 +1,8 @@
 <?php
 /**
- * @link      https://github.com/index0h/yii-log
+ * @link      https://github.com/index0h/yii2-log
  * @copyright Copyright (c) 2014 Roman Levishchenko <index.0h@gmail.com>
- * @license   https://raw.github.com/index0h/yii-log/master/LICENSE
+ * @license   https://raw.github.com/index0h/yii2-log/master/LICENSE
  */
 
 return [
@@ -10,42 +10,44 @@ return [
     'basePath' => \Yii::getAlias('@tests'),
     'runtimePath' => \Yii::getAlias('@tests/_runtime'),
     'components' => [
+        'redis' => ['class' => 'yii\redis\Connection'],
+        'elasticsearch' => ['class' => 'yii\elasticsearch\Connection'],
         'log' => [
             'traceLevel' => 3,
             'targets' => [
                 [
-                    'class' => 'index0h\\yii\\log\\ElasticsearchTarget',
+                    'class' => 'index0h\\log\\ElasticsearchTarget',
                     'categories' => ['ElasticsearchTarget'],
                     'emergencyLogFile' => '@tests/_log/emergency.log'
                 ],
                 [
-                    'class' => 'index0h\\yii\\log\\ElasticsearchTarget',
+                    'class' => 'index0h\\log\\ElasticsearchTarget',
                     'categories' => ['WrongElasticsearchTarget'],
-                    'dsn' => 'http://WRONG_HOST:12045/yii/log',
+                    'componentName' => 'WRONG',
                     'emergencyLogFile' => '@tests/_log/emergency.log'
                 ],
                 [
-                    'class' => 'index0h\\yii\\log\\LogstashFileTarget',
+                    'class' => 'index0h\\log\\LogstashFileTarget',
                     'categories' => ['LogstashFileTarget'],
                     'logFile' => '@tests/_log/logstash.log'
                 ],
                 [
                     // Travis doesn't have logstash implementation.
-                    'class' => 'index0h\\yii\\log\\LogstashTarget',
+                    'class' => 'index0h\\log\\LogstashTarget',
                     'categories' => ['WrongLogstashTarget'],
                     'dsn' => 'tcp://WRONG_HOST:12045',
                     'emergencyLogFile' => '@tests/_log/emergency.log'
                 ],
                 [
-                    'class' => 'index0h\\yii\\log\\RedisTarget',
+                    'class' => 'index0h\\log\\RedisTarget',
                     'categories' => ['RedisTarget'],
                     'emergencyLogFile' => '@tests/_log/emergency.log',
                     'key' => 'yii_log'
                 ],
                 [
-                    'class' => 'index0h\\yii\\log\\RedisTarget',
+                    'class' => 'index0h\\log\\RedisTarget',
                     'categories' => ['WrongRedisTarget'],
-                    'parameters' => 'tcp://WRONG_HOST:12045',
+                    'componentName' => 'WRONG',
                     'emergencyLogFile' => '@tests/_log/emergency.log'
                 ],
             ],

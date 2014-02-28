@@ -1,10 +1,10 @@
 {
-    "name": "index0h/yii-log",
+    "name": "index0h/yii2-log",
     "description": "Many Yii2 log targets",
-    "version": "0.0.1-beta",
+    "version": "0.0.1",
     "type": "yii2-extension",
     "keywords": ["yii", "log", "yii-log", "log-target"],
-    "homepage": "https://github.com/index0h/yii-log",
+    "homepage": "https://github.com/index0h/yii2-log",
     "license": "MIT",
     "authors": [
         {
@@ -13,8 +13,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/index0h/yii-log/issues",
-        "source": "https://github.com/index0h/yii-log"
+        "issues": "https://github.com/index0h/yii2-log/issues",
+        "source": "https://github.com/index0h/yii2-log"
     },
     "require": {
         "php": ">=5.4.0",
@@ -23,16 +23,12 @@
     },
     "require-dev": {
         "codeception/codeception": "1.8.2",
-        "predis/predis": "v0.8.5",
-        "nervetattoo/elasticsearch" : ">=2.0"
-    },
-    "suggest": {
-        "predis/predis": "v0.8.5",
-        "nervetattoo/elasticsearch" : ">=2.0"
+        "yiisoft/yii2-redis": "dev-master",
+        "yiisoft/yii2-elasticsearch": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "index0h\\yii\\log\\": "lib"
+            "index0h\\log\\": "src"
         }
     },
     "scripts": {

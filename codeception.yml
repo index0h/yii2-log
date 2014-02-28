@@ -12,4 +12,4 @@ settings:
     coverage:
         enabled: true
         include:
-            - lib/*
+            - src/*

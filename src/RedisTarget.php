@@ -1,15 +1,14 @@
 <?php
 /**
- * @link      https://github.com/index0h/yii-log
+ * @link      https://github.com/index0h/yii2-log
  * @copyright Copyright (c) 2014 Roman Levishchenko <index.0h@gmail.com>
- * @license   https://raw.github.com/index0h/yii-log/master/LICENSE
+ * @license   https://raw.github.com/index0h/yii2-log/master/LICENSE
  */
 
-namespace index0h\yii\log;
+namespace index0h\log;
 
-use index0h\yii\log\base\EmergencyTrait;
-use index0h\yii\log\base\TargetTrait;
-use Predis\Client;
+use index0h\log\base\EmergencyTrait;
+use index0h\log\base\TargetTrait;
 use yii\log\Target;
 
 /**
@@ -23,11 +22,8 @@ class RedisTarget extends Target
     /** @type string Redis list key. */
     public $key = 'yii_log';
 
-    /** @type array|null Predis client options, @see https://github.com/nrk/predis. */
-    public $options;
-
-    /** @type array|null Predis client parameters, @see https://github.com/nrk/predis. */
-    public $parameters;
+    /** @type string Yii redis component name. */
+    public $componentName = 'redis';
 
     /**
      * @inheritdoc
@@ -35,8 +31,7 @@ class RedisTarget extends Target
     public function export()
     {
         try {
-            $client = new Client($this->parameters, $this->options);
-            $client->lpush($this->key, array_map([$this, 'formatMessage'], $this->messages));
+            \Yii::$app->{$this->componentName}->lpush($this->key, array_map([$this, 'formatMessage'], $this->messages));
         } catch (\Exception $error) {
             $this->emergencyExport(
                 [

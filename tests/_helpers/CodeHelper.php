@@ -1,14 +1,11 @@
 <?php
 /**
- * @link      https://github.com/index0h/yii-log
+ * @link      https://github.com/index0h/yii2-log
  * @copyright Copyright (c) 2014 Roman Levishchenko <index.0h@gmail.com>
- * @license   https://raw.github.com/index0h/yii-log/master/LICENSE
+ * @license   https://raw.github.com/index0h/yii2-log/master/LICENSE
  */
 
 namespace Codeception\Module;
-
-use ElasticSearch\Client as ESClient;
-use Predis\Client as PredisClient;
 
 /**
  * @author Roman Levishchenko <index.0h@gmail.com>
@@ -101,8 +98,7 @@ class CodeHelper extends \Codeception\Module
 
     public function flushRedis()
     {
-        $client = new PredisClient();
-        $client->flushall();
+        \Yii::$app->redis->flushall();
     }
 
     public function removeEmergencyLog()
@@ -126,8 +122,9 @@ class CodeHelper extends \Codeception\Module
      */
     public function seeElasticsearchLog($message)
     {
-        $client = ESClient::connection('http://127.0.0.1:9200/yii/log');
-        $result = $client->search([]);
+        $result = \Yii::$app->elasticsearch
+            ->createCommand(['index' => 'yii', 'type' => 'log'])
+            ->search([]);
         $this->assertEquals($message, $result['hits']['hits'][0]['_source']['@message']);
     }
 
@@ -154,10 +151,9 @@ class CodeHelper extends \Codeception\Module
      */
     public function seeRedisLog($message)
     {
-        $client = new PredisClient();
-        $this->assertEquals(1, $client->llen(self::REDIS_LOG));
+        $this->assertEquals(1, \Yii::$app->redis->llen(self::REDIS_LOG));
 
-        $log = json_decode($client->lpop(self::REDIS_LOG), true);
+        $log = json_decode(\Yii::$app->redis->lpop(self::REDIS_LOG), true);
 
         $this->assertEquals($message, $log['@message']);
     }

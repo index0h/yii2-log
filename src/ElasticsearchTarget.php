@@ -1,15 +1,14 @@
 <?php
 /**
- * @link      https://github.com/index0h/yii-log
+ * @link      https://github.com/index0h/yii2-log
  * @copyright Copyright (c) 2014 Roman Levishchenko <index.0h@gmail.com>
- * @license   https://raw.github.com/index0h/yii-log/master/LICENSE
+ * @license   https://raw.github.com/index0h/yii2-log/master/LICENSE
  */
 
-namespace index0h\yii\log;
+namespace index0h\log;
 
-use ElasticSearch\Client;
-use index0h\yii\log\base\EmergencyTrait;
-use index0h\yii\log\base\TargetTrait;
+use index0h\log\base\EmergencyTrait;
+use index0h\log\base\TargetTrait;
 use yii\log\Target;
 
 /**
@@ -20,8 +19,14 @@ class ElasticsearchTarget extends Target
     use TargetTrait;
     use EmergencyTrait;
 
-    /** @type array Elasticsearch full url @see https://github.com/nervetattoo/elasticsearch. */
-    public $dsn = 'http://localhost:9200/yii/log';
+    /** @type string Elasticsearch index name. */
+    public $index = 'yii';
+
+    /** @type string Elasticsearch type name. */
+    public $type = 'log';
+
+    /** @type string Yii Elasticsearch component name. */
+    public $componentName = 'elasticsearch';
 
     /**
      * @inheritdoc
@@ -29,15 +34,14 @@ class ElasticsearchTarget extends Target
     public function export()
     {
         try {
-            $client = Client::connection($this->dsn);
-
             foreach ($this->messages as &$message) {
-                $client->index($this->prepareMessage($message));
+                \Yii::$app->elasticsearch->post([$this->index, $this->type], [], $this->prepareMessage($message));
             }
         } catch (\Exception $error) {
             $this->emergencyExport(
                 [
-                    'dsn' => $this->dsn,
+                    'index' => $this->index,
+                    'type' => $this->type,
                     'error' => $error->getMessage(),
                     'errorNumber' => $error->getCode(),
                     'trace' => $error->getTraceAsString()
