@@ -31,7 +31,10 @@ class RedisTarget extends Target
     public function export()
     {
         try {
-            \Yii::$app->{$this->componentName}->lpush($this->key, array_map([$this, 'formatMessage'], $this->messages));
+            $messages = array_map([$this, 'formatMessage'], $this->messages);
+            foreach ($messages as &$message) {
+                \Yii::$app->{$this->componentName}->lpush($this->key, $message);
+            }
         } catch (\Exception $error) {
             $this->emergencyExport(
                 [

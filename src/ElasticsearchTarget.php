@@ -34,8 +34,9 @@ class ElasticsearchTarget extends Target
     public function export()
     {
         try {
-            foreach ($this->messages as &$message) {
-                \Yii::$app->elasticsearch->post([$this->index, $this->type], [], $this->prepareMessage($message));
+            $messages = array_map([$this, 'formatMessage'], $this->messages);
+            foreach ($messages as &$message) {
+                \Yii::$app->{$this->componentName}->post([$this->index, $this->type], [], $message);
             }
         } catch (\Exception $error) {
             $this->emergencyExport(
