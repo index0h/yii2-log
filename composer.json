@@ -3,7 +3,7 @@
     "description": "Many Yii2 log targets",
     "version": "0.0.1",
     "type": "yii2-extension",
-    "keywords": ["yii", "log", "yii-log", "log-target"],
+    "keywords": ["yii2", "log", "yii2-log", "log-target"],
     "homepage": "https://github.com/index0h/yii2-log",
     "license": "MIT",
     "authors": [

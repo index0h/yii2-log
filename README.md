@@ -1,7 +1,7 @@
 yii-log
 =======
 
-[![Build Status](https://travis-ci.org/index0h/yii-log.png?branch=master)](https://travis-ci.org/index0h/yii-log) [![Latest Stable Version](https://poser.pugx.org/index0h/yii-log/v/stable.png)](https://packagist.org/packages/index0h/yii-log) [![Dependency Status](https://gemnasium.com/index0h/yii-log.png)](https://gemnasium.com/index0h/yii-log) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/index0h/yii-log/badges/quality-score.png?s=9d7c3843dedbc78e4229dedae09fb2eff72c4012)](https://scrutinizer-ci.com/g/index0h/yii-log/) [![Code Coverage](https://scrutinizer-ci.com/g/index0h/yii-log/badges/coverage.png?s=e5fe3d9d1ff40c1e01fbb9b91068b34ad74a78fe)](https://scrutinizer-ci.com/g/index0h/yii-log/)    [![Total Downloads](https://poser.pugx.org/index0h/yii-log/downloads.png)](https://packagist.org/packages/index0h/yii-log)    [![License](https://poser.pugx.org/index0h/yii-log/license.png)](https://packagist.org/packages/index0h/yii-log)
+[![Build Status](https://travis-ci.org/index0h/yii2-log.png?branch=master)](https://travis-ci.org/index0h/yii2-log) [![Latest Stable Version](https://poser.pugx.org/index0h/yii2-log/v/stable.png)](https://packagist.org/packages/index0h/yii2-log) [![Dependency Status](https://gemnasium.com/index0h/yii2-log.png)](https://gemnasium.com/index0h/yii2-log) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/index0h/yii2-log/badges/quality-score.png?s=305ee4c827a791ab27895799d2c3f3ce9553ea51)](https://scrutinizer-ci.com/g/index0h/yii2-log/) [![Code Coverage](https://scrutinizer-ci.com/g/index0h/yii2-log/badges/coverage.png?s=25e175d218529b7ffa0a2f39cb9204e5b4816843)](https://scrutinizer-ci.com/g/index0h/yii2-log/) [![Total Downloads](https://poser.pugx.org/index0h/yii2-log/downloads.png)](https://packagist.org/packages/index0h/yii2-log) [![License](https://poser.pugx.org/index0h/yii2-log/license.png)](https://packagist.org/packages/index0h/yii2-log)
 
 Different Yii2 log transports
 
@@ -17,13 +17,13 @@ Different Yii2 log transports
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ```sh
-php composer.phar require --prefer-dist index0h/yii-log "0.0.1"
+php composer.phar require --prefer-dist index0h/yii2-log "0.0.1"
 ```
 
 or add line to require section of `composer.json`
 
 ```json
-"index0h/yii-log": "0.0.1"
+"index0h/yii2-log": "0.0.1"
 ```
 
 ## Usage
