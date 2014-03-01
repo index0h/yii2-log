@@ -1,5 +1,11 @@
-yii-log change log
+yii2-log change log
 ===================
+
+0.0.2
+-----
+
+* Full refactoring of redis and elasticsearch backends
+* Moveing extension files ot src folder
 
 0.0.1
 -----
