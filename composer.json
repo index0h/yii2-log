@@ -1,7 +1,7 @@
 {
     "name": "index0h/yii2-log",
     "description": "Many Yii2 log targets",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "type": "yii2-extension",
     "keywords": ["yii2", "log", "yii2-log", "log-target", "logstash", "elasticsearch", "redis"],
     "homepage": "https://github.com/index0h/yii2-log",
