@@ -27,6 +27,9 @@ use yii\log\Logger;
  */
 trait TargetTrait
 {
+
+    public $logUser = false;
+    
     /**
      * Processes the given log messages.
      *
