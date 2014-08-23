@@ -47,7 +47,7 @@ class CodeHelper extends \Codeception\Module
                 break;
         }
         \Yii::error($message, 'LogstashFileTarget');
-        \Yii::$app->getLog()->flush(true);
+        \Yii::getLogger()->flush(true);
     }
 
     /**
@@ -171,6 +171,6 @@ class CodeHelper extends \Codeception\Module
             \Yii::error($message, $target);
         }
 
-        \Yii::$app->getLog()->flush(true);
+        \Yii::getLogger()->flush(true);
     }
 }

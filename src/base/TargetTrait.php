@@ -14,7 +14,6 @@ use yii\log\Logger;
  * @property string[]    categories     List of message categories that this target is interested in.
  * @property string[]    except         List of message categories that this target is NOT interested in
  * @property int         exportInterval How many messages should be accumulated before they are exported.
- * @property bool        logUser        Whether to log a message containing the current user name and ID.
  * @property string[]    logVars        List of the PHP predefined variables that should be logged in a message.
  * @property array       messages       The messages that are retrieved from the logger so far by this log target.
  *
@@ -27,6 +26,9 @@ use yii\log\Logger;
  */
 trait TargetTrait
 {
+    /** @type bool Whether to log a message containing the current user name and ID. */
+    public $logUser = false;
+
     /**
      * Processes the given log messages.
      *

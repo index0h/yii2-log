@@ -9,6 +9,7 @@ return [
     'id' => 'basic',
     'basePath' => \Yii::getAlias('@tests'),
     'runtimePath' => \Yii::getAlias('@tests/_runtime'),
+    'bootstrap' => ['log'],
     'components' => [
         'redis' => ['class' => 'yii\redis\Connection'],
         'elasticsearch' => ['class' => 'yii\elasticsearch\Connection'],

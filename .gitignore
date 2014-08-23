@@ -1,5 +1,6 @@
 !.gitignore
 
+.vagrant
 .idea
 tests/_runtime
 tests/_log

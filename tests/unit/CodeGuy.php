@@ -5,6 +5,7 @@
 
 
 use \Codeception\Maybe;
+use Codeception\Module\CodeHelper;
 
 /**
  * Inherited methods
@@ -24,32 +25,13 @@ use \Codeception\Maybe;
 
 class CodeGuy extends \Codeception\AbstractGuy
 {
-
+    
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
-     * @see Codeception\Module\CodeHelper::addWrongLogstashLog()
-     * @return \Codeception\Maybe
-     */
-    public function addWrongLogstashLog($message) {
-        $this->scenario->addStep(new \Codeception\Step\Action('addWrongLogstashLog', func_get_args()));
-        if ($this->scenario->running()) {
-            $result = $this->scenario->runStep();
-            return new Maybe($result);
-        }
-        return new Maybe();
-    }
-
-
-    /**
-     * This method is generated.
-     * Documentation taken from corresponding module.
-     * ----------------------------------------------
-     *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::addElasticsearchLog()
      * @return \Codeception\Maybe
      */
@@ -62,13 +44,14 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
+     * @param string $type    Type of message passed to logger.
      * @see Codeception\Module\CodeHelper::addLogstashFileLog()
      * @return \Codeception\Maybe
      */
@@ -81,50 +64,13 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
-    * Conditional Assertion: Test won't be stopped on fail
-     * @see Codeception\Module\CodeHelper::seeLogstashFile()
-     * @return \Codeception\Maybe
-     */
-    public function canSeeLogstashFile() {
-        $this->scenario->addStep(new \Codeception\Step\ConditionalAssertion('seeLogstashFile', func_get_args()));
-        if ($this->scenario->running()) {
-            $result = $this->scenario->runStep();
-            return new Maybe($result);
-        }
-        return new Maybe();
-    }
-    /**
-     * This method is generated.
-     * Documentation taken from corresponding module.
-     * ----------------------------------------------
-     *
-     *
-     * @see Codeception\Module\CodeHelper::seeLogstashFile()
-     * @return \Codeception\Maybe
-     */
-    public function seeLogstashFile() {
-        $this->scenario->addStep(new \Codeception\Step\Assertion('seeLogstashFile', func_get_args()));
-        if ($this->scenario->running()) {
-            $result = $this->scenario->runStep();
-            return new Maybe($result);
-        }
-        return new Maybe();
-    }
-
-
-    /**
-     * This method is generated.
-     * Documentation taken from corresponding module.
-     * ----------------------------------------------
-     *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::addRedisLog()
      * @return \Codeception\Maybe
      */
@@ -137,32 +83,13 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
-     * @see Codeception\Module\CodeHelper::addWrongRedisLog()
-     * @return \Codeception\Maybe
-     */
-    public function addWrongRedisLog($message) {
-        $this->scenario->addStep(new \Codeception\Step\Action('addWrongRedisLog', func_get_args()));
-        if ($this->scenario->running()) {
-            $result = $this->scenario->runStep();
-            return new Maybe($result);
-        }
-        return new Maybe();
-    }
-
-
-    /**
-     * This method is generated.
-     * Documentation taken from corresponding module.
-     * ----------------------------------------------
-     *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::addWrongElasticsearchLog()
      * @return \Codeception\Maybe
      */
@@ -175,7 +102,45 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
+ 
+    /**
+     * This method is generated.
+     * Documentation taken from corresponding module.
+     * ----------------------------------------------
+     *
+     * @param string $message Message to log.
+     * @see Codeception\Module\CodeHelper::addWrongLogstashLog()
+     * @return \Codeception\Maybe
+     */
+    public function addWrongLogstashLog($message) {
+        $this->scenario->addStep(new \Codeception\Step\Action('addWrongLogstashLog', func_get_args()));
+        if ($this->scenario->running()) {
+            $result = $this->scenario->runStep();
+            return new Maybe($result);
+        }
+        return new Maybe();
+    }
 
+ 
+    /**
+     * This method is generated.
+     * Documentation taken from corresponding module.
+     * ----------------------------------------------
+     *
+     * @param string $message Message to log.
+     * @see Codeception\Module\CodeHelper::addWrongRedisLog()
+     * @return \Codeception\Maybe
+     */
+    public function addWrongRedisLog($message) {
+        $this->scenario->addStep(new \Codeception\Step\Action('addWrongRedisLog', func_get_args()));
+        if ($this->scenario->running()) {
+            $result = $this->scenario->runStep();
+            return new Maybe($result);
+        }
+        return new Maybe();
+    }
+
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -212,7 +177,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -231,7 +196,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -250,7 +215,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -269,7 +234,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
@@ -288,13 +253,13 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
     * Conditional Assertion: Test won't be stopped on fail
      * @see Codeception\Module\CodeHelper::seeElasticsearchLog()
      * @return \Codeception\Maybe
@@ -312,7 +277,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::seeElasticsearchLog()
      * @return \Codeception\Maybe
      */
@@ -325,13 +290,13 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
     * Conditional Assertion: Test won't be stopped on fail
      * @see Codeception\Module\CodeHelper::seeEmergencyLog()
      * @return \Codeception\Maybe
@@ -349,7 +314,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::seeEmergencyLog()
      * @return \Codeception\Maybe
      */
@@ -362,13 +327,50 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
      *
+    * Conditional Assertion: Test won't be stopped on fail
+     * @see Codeception\Module\CodeHelper::seeLogstashFile()
+     * @return \Codeception\Maybe
+     */
+    public function canSeeLogstashFile() {
+        $this->scenario->addStep(new \Codeception\Step\ConditionalAssertion('seeLogstashFile', func_get_args()));
+        if ($this->scenario->running()) {
+            $result = $this->scenario->runStep();
+            return new Maybe($result);
+        }
+        return new Maybe();
+    }
+    /**
+     * This method is generated.
+     * Documentation taken from corresponding module.
+     * ----------------------------------------------
+     *
+     *
+     * @see Codeception\Module\CodeHelper::seeLogstashFile()
+     * @return \Codeception\Maybe
+     */
+    public function seeLogstashFile() {
+        $this->scenario->addStep(new \Codeception\Step\Assertion('seeLogstashFile', func_get_args()));
+        if ($this->scenario->running()) {
+            $result = $this->scenario->runStep();
+            return new Maybe($result);
+        }
+        return new Maybe();
+    }
+
+ 
+    /**
+     * This method is generated.
+     * Documentation taken from corresponding module.
+     * ----------------------------------------------
+     *
+     * @param string $message Message to log.
     * Conditional Assertion: Test won't be stopped on fail
      * @see Codeception\Module\CodeHelper::seeRedisLog()
      * @return \Codeception\Maybe
@@ -386,7 +388,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * Documentation taken from corresponding module.
      * ----------------------------------------------
      *
-     *
+     * @param string $message Message to log.
      * @see Codeception\Module\CodeHelper::seeRedisLog()
      * @return \Codeception\Maybe
      */
@@ -399,7 +401,7 @@ class CodeGuy extends \Codeception\AbstractGuy
         return new Maybe();
     }
 
-
+ 
     /**
      * This method is generated.
      * Documentation taken from corresponding module.
