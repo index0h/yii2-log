@@ -24,7 +24,7 @@
     "require-dev": {
         "codeception/codeception": "2.0.5",
         "yiisoft/yii2-redis": "2.0.0-beta",
-        "yiisoft/yii2-elasticsearch": "2.0.0-beta"
+        "yiisoft/yii2-elasticsearch": "dev-master"
     },
     "autoload": {
         "psr-4": {
