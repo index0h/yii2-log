@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cp -r /vagrant/provision/dot/.[a-zA-Z0-9]* /home/vagrant/
-chown -R vagrant /home/vagrant/.[a-zA-Z0-9]*
+chown -R vagrant:vagrant /home/vagrant/
 
 cp -r /vagrant/provision/dot/.[a-zA-Z0-9]* /root/
-chown -R root /home/vagrant/.[a-zA-Z0-9]*
+chown -R root:root /root/

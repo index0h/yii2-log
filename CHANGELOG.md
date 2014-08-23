@@ -5,7 +5,9 @@ yii2-log change log
 -----
 
 * Full refactoring of redis and elasticsearch backends
-* Moveing extension files ot src folder
+* Moving extension files ot src folder
+* Fixed logger (Yii 2.0.0-beta)
+* Updated codeception version
 
 0.0.1
 -----
