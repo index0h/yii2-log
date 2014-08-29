@@ -1,5 +1,5 @@
 
 test:
-	php ./vendor/bin/codecept run --coverage --html --xml
+	php ./vendor/bin/codecept run --coverage-xml --quiet
 
 .PHONY: test
