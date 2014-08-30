@@ -13,7 +13,7 @@ install:
   - composer install
 
 script:
-  - make test
+  - php ./.test.php run --coverage-xml --quiet
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
