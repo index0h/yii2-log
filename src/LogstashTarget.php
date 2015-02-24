@@ -30,7 +30,7 @@ class LogstashTarget extends \yii\log\FileTarget
             $socket = stream_socket_client($this->dsn, $errorNumber, $error, 30);
 
             foreach ($this->messages as &$message) {
-                fwrite($socket, $this->formatMessage($message));
+                fwrite($socket, $this->formatMessage($message)."\r\n");
             }
 
             fclose($socket);
