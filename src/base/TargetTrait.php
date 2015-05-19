@@ -85,7 +85,7 @@ trait TargetTrait
     protected function getContextMessage()
     {
         $context = [];
-        if (($this->logUser === true) && ($user = \Yii::$app->getComponent('user', false)) !== null) {
+        if (($this->logUser === true) && ($user = \Yii::$app->get('user', false)) !== null) {
             /** @type \yii\web\User $user */
             $context['userId'] = $user->getId();
         }
