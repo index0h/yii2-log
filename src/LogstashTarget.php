@@ -13,7 +13,7 @@ use index0h\log\base\TargetTrait;
 /**
  * @author Roman Levishchenko <index.0h@gmail.com>
  */
-class LogstashTarget extends \yii\log\FileTarget
+class LogstashTarget extends \yii\log\Target
 {
     use TargetTrait;
     use EmergencyTrait;
