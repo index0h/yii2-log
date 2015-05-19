@@ -29,6 +29,9 @@ trait TargetTrait
     /** @type bool Whether to log a message containing the current user name and ID. */
     public $logUser = false;
 
+    /** @type array Add more context */
+    public $context = [];
+
     /**
      * Processes the given log messages.
      *
@@ -84,7 +87,7 @@ trait TargetTrait
      */
     protected function getContextMessage()
     {
-        $context = [];
+        $context = $this->context;
         if (($this->logUser === true) && ($user = \Yii::$app->get('user', false)) !== null) {
             /** @type \yii\web\User $user */
             $context['userId'] = $user->getId();
