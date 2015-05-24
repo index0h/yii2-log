@@ -17,13 +17,13 @@ Different Yii2 log transports
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ```sh
-php composer.phar require --prefer-dist index0h/yii2-log "0.0.2"
+php composer.phar require --prefer-dist index0h/yii2-log "0.0.3"
 ```
 
 or add line to require section of `composer.json`
 
 ```json
-"index0h/yii2-log": "0.0.2"
+"index0h/yii2-log": "0.0.3"
 ```
 
 ## Usage
