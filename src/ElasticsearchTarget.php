@@ -19,13 +19,13 @@ class ElasticsearchTarget extends Target
     use TargetTrait;
     use EmergencyTrait;
 
-    /** @type string Elasticsearch index name. */
+    /** @var string Elasticsearch index name. */
     public $index = 'yii';
 
-    /** @type string Elasticsearch type name. */
+    /** @var string Elasticsearch type name. */
     public $type = 'log';
 
-    /** @type string Yii Elasticsearch component name. */
+    /** @var string Yii Elasticsearch component name. */
     public $componentName = 'elasticsearch';
 
     /**

@@ -1,6 +1,12 @@
 yii2-log change log
 ===================
 
+0.0.3
+
+* Update provision
+* Composer Yii version
+* Upgrade yii2 ref + add extra context field
+
 0.0.2
 -----
 

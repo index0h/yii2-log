@@ -26,8 +26,11 @@ use yii\log\Logger;
  */
 trait TargetTrait
 {
-    /** @type bool Whether to log a message containing the current user name and ID. */
+    /** @var bool Whether to log a message containing the current user name and ID. */
     public $logUser = false;
+
+    /** @var array Add more context */
+    public $context = [];
 
     /**
      * Processes the given log messages.
@@ -84,9 +87,10 @@ trait TargetTrait
      */
     protected function getContextMessage()
     {
-        $context = [];
-        if (($this->logUser === true) && ($user = \Yii::$app->getComponent('user', false)) !== null) {
-            /** @type \yii\web\User $user */
+        $context = $this->context;
+
+        if (($this->logUser === true) && ($user = \Yii::$app->get('user', false)) !== null) {
+            /** @var \yii\web\User $user */
             $context['userId'] = $user->getId();
         }
 

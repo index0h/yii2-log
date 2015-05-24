@@ -13,12 +13,12 @@ use index0h\log\base\TargetTrait;
 /**
  * @author Roman Levishchenko <index.0h@gmail.com>
  */
-class LogstashTarget extends \yii\log\FileTarget
+class LogstashTarget extends \yii\log\Target
 {
     use TargetTrait;
     use EmergencyTrait;
 
-    /** @type string Connection configuration to Logstash. */
+    /** @var string Connection configuration to Logstash. */
     public $dsn = 'tcp://localhost:3333';
 
     /**
@@ -30,7 +30,7 @@ class LogstashTarget extends \yii\log\FileTarget
             $socket = stream_socket_client($this->dsn, $errorNumber, $error, 30);
 
             foreach ($this->messages as &$message) {
-                fwrite($socket, $this->formatMessage($message)."\r\n");
+                fwrite($socket, $this->formatMessage($message) . "\r\n");
             }
 
             fclose($socket);

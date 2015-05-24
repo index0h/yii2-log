@@ -18,8 +18,8 @@ use yii\helpers\ArrayHelper;
  */
 trait EmergencyTrait
 {
-    /** @type string Alias of log file. */
-    public $emergencyLogFile = '@app/logs/logService.log';
+    /** @var string Alias of log file. */
+    public $emergencyLogFile = '@runtime/logs/logService.log';
 
     /**
      * @param array $data Additional information to log messages from target.

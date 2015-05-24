@@ -216,3 +216,11 @@ output {
 ```sh
 make test
 ```
+
+-- --
+
+#### Thanks to
+
+[@achretien](https://github.com/achretien)
+[@Archy812](https://github.com/Archy812)
+[@xt99](https://github.com/xt99)

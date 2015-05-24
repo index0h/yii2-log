@@ -19,10 +19,10 @@ class RedisTarget extends Target
     use TargetTrait;
     use EmergencyTrait;
 
-    /** @type string Redis list key. */
+    /** @var string Redis list key. */
     public $key = 'yii_log';
 
-    /** @type string Yii redis component name. */
+    /** @var string Yii redis component name. */
     public $componentName = 'redis';
 
     /**
